@@ -1,4 +1,4 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -173,10 +173,10 @@ app {
         padding-right: 1.5rem !important;
     }
 
-   .navbar-toggler { 
+    .navbar-toggler { 
         display: none;
     }
-    
+
     .sidebar .collapse {
         /* Never collapse the sidebar for wide screens */
         display: block;
