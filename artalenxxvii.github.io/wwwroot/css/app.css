@@ -173,9 +173,9 @@ app {
         padding-right: 1.5rem !important;
     }
 
-    /*.navbar-toggler {*/ /*
+    .navbar-toggler { 
         display: none;
-    }*/
+    }
 
     .sidebar .collapse {
         /* Never collapse the sidebar for wide screens */
