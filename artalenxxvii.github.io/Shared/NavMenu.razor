@@ -1,4 +1,4 @@
-﻿<nav class="navbar">
+<nav class="navbar">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon navbar-light"></span>
     </button>
@@ -41,7 +41,7 @@
 
     string baseMenuClass = "navbar-collapse d-sm-inline-flex flex-sm-row-reverse";
 
-    string NavMenuCssClass => baseMenuClass + (collapseNavMenu ? "collapse" : "");
+    string NavMenuCssClass => baseMenuClass + (collapseNavMenu ? " collapse" : "");
 
     void ToggleNavMenu()
     {
