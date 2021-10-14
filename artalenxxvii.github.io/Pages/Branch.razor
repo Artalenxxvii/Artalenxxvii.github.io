@@ -1,0 +1,23 @@
+﻿@page "/branch/{BranchNo}"
+@inject HttpClient Http
+
+
+<h3>Branch @IntToString(BranchNo)</h3>
+
+@code {
+    [Parameter]
+    public string BranchNo { get; set; }
+
+    string IntToString(string BranchNo)
+    {
+        if (BranchNo == "1")
+        {
+            return "one";
+        }
+        else
+        {
+            return "Not Accepted";
+        }
+    }
+}
+
