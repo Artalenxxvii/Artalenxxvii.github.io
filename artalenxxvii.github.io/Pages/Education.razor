@@ -1,0 +1,64 @@
+﻿<div class="card mt-2 mb-2">
+    <div class="card-body">
+        <h6 class="mb-n2 ml-lg-1"> <img src="/Images/educ.png" alt="Admin" class="rounded-circle" width="30"> <b> EDUCATION ATTAINMENT </b></h6>
+        <hr />
+
+        <div class="row card-group">
+            <div class="row d-flex flex-wrap col-sm-11">
+                <div class="card-body mt-n4">
+                    <p> <b>Bachelor of Science in Information Technology</b></p>
+                    @foreach (var p in project)
+                    {
+                        <div>
+                            <table class="border-bottom w-100">
+                                <tr>
+                                    <td rowspan="3" valign="top" align="left">
+                                        <h5 class="ml-2">►</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b >
+                                            @p.Name
+                                        </b><br />
+                                        <p>
+                                            @p.Year
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <b>
+                                            @p.Desciption
+                                        </b>
+                                        <p>
+                                            @p.Address
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    class Projects
+    {
+        public string Name { get; set; }
+        public string Desciption { get; set; }
+        public string Year { get; set; }
+        public string Address { get; set; }
+    }
+
+    List<Projects> project = new List<Projects>
+{
+         new Projects { Name = "TERTIARY", Desciption="BULACAN STATE UNIVERSITY", Year="2013-2018",
+             Address="Brgy Kaypian, San Jose Del Monte City, Bulacan"},
+
+         new Projects { Name = "SECONDARY",  Desciption="NATIONAL HIGH SCHOOL", Year="2009-2013",
+             Address="Brgy Yakal, San Jose Del Monte City, Bulacan"},
+    };
+}

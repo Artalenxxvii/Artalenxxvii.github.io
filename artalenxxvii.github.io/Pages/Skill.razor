@@ -1,0 +1,49 @@
+﻿@page "/Skill"
+@inject NavigationManager Navigation
+
+<div class="card">
+    <div class="card-body">
+        <h6 class="mb-n2 ml-lg-1"> <img src="/Images/skill.png" alt="Admin" class="rounded-circle" width="30"> <b> SPECIAL SKILL </b></h6>
+        <hr />
+        <div class="row card-group">
+            <div class="col-sm-1">
+            </div>
+
+            <div class="row d-flex flex-wrap col-sm-11">
+                <div class="card-body mt-n4">
+
+                    <ul class="list-group list-group-flush d-inline-flex">
+
+                        @foreach (var s in sk)
+                        {
+                            <li class="border-bottom ">
+                                <p class="mb-1 ml-2">
+                                    @s.name
+                                </p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code{
+    class skill
+    {
+        public string name { get; set; }
+    }
+
+    List<skill> sk = new List<skill>{
+
+         new skill { name = "Working knowledge on C#, ASP.NET MVC, ASP.NET Webform and ASP.NET Web API (REST)"},
+         new skill { name = "Understanding on HTML, CSS, Bootstrap, Javascript, jQuery, AJAX and JSON" },
+         new skill { name = "Knowlegdeable in OOP Concept, Agile Methodology, IIS Web Service, T-SQL, ADO.NET and GIT" },
+         new skill { name = "Familiarity with Reporting tool(Crystal Report), Blazor WASM and Blazor Server"},
+         new skill { name = "IDE: Visual Studio" },
+         new skill { name = "Database Management Software: SQL Server Management Studio" }
+    };
+
+
+}

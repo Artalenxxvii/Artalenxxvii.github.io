@@ -1,14 +1,12 @@
 ﻿@page "/cv"
 @inject NavigationManager Navigation
 <div class="main-body">
-
     <div class="row gutters-sm">
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                         <img src="/Images/aaaa.PNG" alt="Admin" class="rounded-circle" width="150">
-
                         <div class="mt-3">
                             <h4>Software Developer</h4>
                             <p class="text-muted font-size-sm">Blk 36 Lot 4 Carissa 1-A <br />Palmera Brgy. Santo Cristo <br /> San Jose Del Monte City, Bulacan</p>
@@ -20,34 +18,28 @@
 
                     <div class="card mt-3">
                         <ul class="list-group list-group-flush d-inline-flex">
-
                             <li class="list-group-item ">
-                                <h6 class="mb-0">
-                                    EMAIL:
-                                </h6>
                                 <span class="text-secondary">
-                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=arthallengonzales@gmail.com" target="_blank">
-                                        arthallengonzales@gmail.com
+                                    <img src="/Images/fb.png" alt="Admin" class="rounded-circle" width="30">
+                                    <a href="https://www.facebook.com/artalenXXVII" target="_blank">
+                                        Arth Allen
                                     </a>
                                 </span>
                             </li>
                             <li class="list-group-item ">
-                                <h6 class="mb-0">
-                                    MOBILE NUMBER:
-                                </h6>
                                 <span class="text-secondary">
+                                    <img src="/Images/phone.png" alt="Admin" class="rounded-circle" width="30">
                                     <a href="" target="_blank">
                                         +63 906 338 7091
                                     </a>
                                 </span>
                             </li>
+
                             <li class="list-group-item ">
-                                <h6 class="mb-0">
-                                    FACEBOOK:
-                                </h6>
                                 <span class="text-secondary">
-                                    <a href="https://www.facebook.com/artalenXXVII" target="_blank">
-                                        Arth Allen
+                                    <img src="/Images/gmail.png" alt="Admin" class="rounded-circle" width="30">
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=arthallengonzales@gmail.com" target="_blank">
+                                        arthallengonzales@gmail.com
                                     </a>
                                 </span>
                             </li>
@@ -63,7 +55,7 @@
                         <div class="row d-flex justify-content-between flex-wrap">
                             <div class="col-sm-5 mb-n3 mt-1">
                                 <p>
-                                  @p.label
+                                    @p.label
                                 </p>
                             </div>
                             <div class="col-sm-7 mt-1">
@@ -71,76 +63,35 @@
                             </div>
                         </div>
                     }
-                    </div>
+                </div>
             </div>
         </div>
 
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header mb-3 mt-md-2">
-                    <div class="d-flex flex-column align-items-center text-center">
-                        <h3><b> ARTH ALLEN GONZALES</b></h3>
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <h6 class="mb-n2 ml-lg-4"> <b> SPECIAL SKILL </b></h6>
-                    <hr />
-
-                    <div class="row card-group">
-
-                        <div class="col-sm-1">
-                        </div>
-
-                        <div class="row d-flex flex-wrap col-sm-11">
-                            <div class="card-body mt-n4">
-
-                                <ul class="list-group list-group-flush d-inline-flex">
-
-                                    @foreach (var s in skill)
-                                    {
-                                        <li class="border-bottom ">
-                                            <p class="mb-0">
-                                                @s.name
-                                            </p>
-                                        </li>
-                                    }
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card mb-2">
+                <div class="card-header mb-3 align-items-center text-center">
+                    <h3><b> ARTH ALLEN GONZALES</b></h3>
                 </div>
             </div>
+            <Skill />
+            <Project />
+            <Education />
         </div>
+
     </div>
 </div>
 
 
 
 @code{
-    class Skill
-    {
-        public string name { get; set; }
-    }
-
     class Personal
     {
         public string label { get; set; }
         public string Item { get; set; }
     }
 
-    List<Skill> skill = new List<Skill>
-    {
-         new Skill { name = "Working knowledge on C#, ASP.Net MVC, Asp.Net Webform and ASP.Net Web API (REST)" },
-         new Skill { name = " Understanding on HTML, CSS, Bootstrap, Javascript, jQuery, AJAX and JSON" },
-         new Skill { name = "Knowlegdeable in OOP Concept, Agile Methodology, IIS Web Service, T-SQL, ADO.NET and GIT" },
-         new Skill { name = " Familiarity with Reporting tool(Crystal Report)" },
-         new Skill { name = "IDE: Visual Studio" },
-         new Skill { name = "Database Management Software: SQL Server Management Studio" }
-    };
-
     List<Personal> personal = new List<Personal>
-    {
+{
           new Personal { label = "BIRTH DATE", Item="Sept. 27, 1996" },
           new Personal { label = "AGE", Item="25" },
           new Personal { label = "GENDER", Item="MALE" },
