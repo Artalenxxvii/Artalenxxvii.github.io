@@ -1,0 +1,107 @@
+﻿@page "/Contact"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<div class="main-body">
+    <div class="row gutters-sm">
+
+        <div class="col-md-7 mb-3">
+            <div class="card">
+                <div class="card-header align-items-center text-center">
+                    <h6 class="ml-lg-1">
+                        <b> Contact Form </b>
+                    </h6>
+                </div>
+                <div class="card-body mt-n3">
+                    <span>
+                        fill up the awesome form below or send an email to
+                        <a href="mailto:arthallengonzales@gmail.com" class="a-link-animate-slide-up">arthallengonzales@gmail.com</a>
+                        and ~let's talk.
+                    </span>
+                    <br />
+                    <br />
+                    <EditForm Model="dto" OnValidSubmit="SendMessage">
+                        <DataAnnotationsValidator />
+
+                        <div class="form-group">
+                            <label><b class="required-asterisk">*</b>Name:</label>
+                            <div>
+                                <InputText class="form-control" @bind-Value="@dto.Name" />
+                                <ValidationMessage For="@(() => dto.Name)" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><b class="required-asterisk">*</b>Email:</label>
+                            <div>
+                                <InputText class="form-control" @bind-Value="@dto.Email" />
+                                <ValidationMessage For="@(() => dto.Email)" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><b class="required-asterisk">*</b>Subject:</label>
+                            <div>
+                                <InputText class="form-control" @bind-Value="@dto.Subject" />
+                                <ValidationMessage For="@(() => dto.Subject)" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><b class="required-asterisk">*</b>Message:</label>
+                            <div>
+                                <InputTextArea class="form-control" rows="5" @bind-Value="@dto.Message" />
+                                <ValidationMessage For="@(() => dto.Message)" />
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Send message!</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 mb-3">
+            <div class="card">
+                <div class="card-body">
+
+                    <iframe id="googleMap" src="https://maps.google.com/maps?q=14.831190960120571,121.0704531883268&hl=en&z=16&amp&output=embed" width="400" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private ContactDto dto = new ContactDto();
+
+    private async Task SendMessage()
+    {
+        using var response = await Http.PostAsJsonAsync("https://formsubmit.co/a671828d40f333485dfabed5ce98c1d6", dto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Navigation.NavigateTo("contact/success");
+        }
+    }
+
+    private class ContactDto
+    {
+        [Required]
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [JsonPropertyName("email")]
+        public string Email { get; set; }
+
+        [Required]
+        [JsonPropertyName("subject")]
+        public string Subject { get; set; }
+
+        [Required]
+        [JsonPropertyName("message")]
+        public string Message { get; set; }
+    }
+}
