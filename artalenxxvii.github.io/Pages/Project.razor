@@ -1,30 +1,30 @@
 ﻿<div class="card mt-2 mb-2">
     <div class="card-body">
-        <h6 class="mb-n2 ml-lg-1"> <img src="/Images/work.png" alt="Admin" class="rounded-circle" width="30"> <b> WORK EXPERIENCE </b></h6>
+        <h6 class="mb-n2 ml-lg-1"> <img src="/Images/work.png" alt="Admin" class="rounded-circle" width="30"> <b> EMPLOYMENT </b></h6>
         <hr />
 
         <div class="row card-group">
-            <div class="row d-flex flex-wrap col-sm-11">
+            <div class="row d-flex flex-wrap">
                 <div class="card-body mt-n4">
                     @foreach (var p in project)
                     {
                         <div>
-                            <table class="border-bottom w-100">
+                            <table class="w-100">
                                 <tr>
                                     <td rowspan="4" valign="top" align="left" width="10px">
                                         <h5 class="ml-lg-2">►</h5>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td width="35%" style="vertical-align: top;">
                                         <b class="d-inline">
                                             @p.Name
                                         </b><br />
-                                        <p>
+                                        <p style="font-size:small">
                                             @p.Year
                                         </p>
                                     </td>
-                                    <td>
+                                    <td align="center" style="vertical-align: top;">
                                         <b>
                                             @p.Desciption
                                         </b>
@@ -33,26 +33,36 @@
                                         </p>
                                     </td>
                                 </tr>
-                                <tr>
+                                @*   <tr>
                                     <td colspan="2">
-                                        <p>
-                                            <b>
-                                                Project -
-                                            </b>
-                                            @p.ProjectName <br />
+                                    <p>
+                                    <b>
+                                    Project -
+                                    </b>
+                                    @p.ProjectName <br />
 
-                                            @p.ProjectNameDescription
-                                        </p>
+                                    @p.ProjectNameDescription
+                                    </p>
                                     </td>
-                                </tr>
-                                <tr>
+                                    </tr>
+                                    <tr>
                                     <td colspan="2">
-                                        <p>
-                                            <b>
-                                                Tools -
-                                            </b>
-                                            @p.Tools
-                                        </p>
+                                    <p>
+                                    <b>
+                                    Tools -
+                                    </b>
+                                    @p.Tools
+                                    </p>
+                                    </td>
+                                    </tr>*@
+                                <tr>
+                                    <td  colspan=2>
+                                        <ul class="mt-n3">
+                                            @foreach(var row in roles.Where(x => x.roleDescriptionid == p.roleDescriptionid))
+                                            {
+                                             <li style="font-size:medium">@row.Notes</li>   
+                                            }
+                                        </ul>
                                     </td>
                                 </tr>
                             </table>
@@ -72,31 +82,60 @@
         public string Desciption { get; set; }
         public string Year { get; set; }
         public string Position { get; set; }
-        public string ProjectName { get; set; }
-        public string ProjectNameDescription { get; set; }
-        public string Tools { get; set; }
+        public int roleDescriptionid { get; set; }
+
+        public virtual ICollection<RoleDescription> roleDescription { get; set; }
+        //public string Project { get; set; }
+        //public string ProjectNameDescription { get; set; }
+        //public string Tools { get; set; }
+    }
+
+    class RoleDescription
+    {
+        public int roleDescriptionid { get; set; }
+        public string Notes { get; set; }
     }
 
     List<Projects> project = new List<Projects>
-{
+    {
          new Projects { Name = "Jyosna Inc.", Desciption="Financial Technology Software Solution", Year="October 2019 - Current",
-             Position="Software Engineer", ProjectName="Jyosna Enterprise Management(Web App)", ProjectNameDescription="Using ASP.NET Webform and C# | Javascript and jQuery",
-             Tools="Visual Studio, SQL Server Management Studio and IIS Web Service"},
+             Position="Software Developer", roleDescriptionid = 1
+             //ProjectName="Jyosna Enterprise Management(Web App)", ProjectNameDescription="Using ASP.NET Webform and C# | Javascript and jQuery",
+             //Tools="Visual Studio, SQL Server Management Studio and IIS Web Service"
+         },
 
          new Projects { Name = "Hilsoft Inc.", Desciption="Software Development Solution", Year="December 2018 - October 2019",
-             Position="Software Engineer", ProjectName="Property Management System (Web App and Web API(REST))", ProjectNameDescription="Using ASP.NET MVC, Web API and C# | Javascript, AJAX, Bootstrap and jQuery",
-             Tools="Visual Studio, GIT, Crystal Report, Postman(for API),Anydesk(for remote server) SQL Server Management Studio and IIS Web Service"},
+             Position="Software Developer", roleDescriptionid = 2
+             //ProjectName="Property Management System (Web App and Web API(REST))", ProjectNameDescription="Using ASP.NET MVC, Web API and C# | Javascript, AJAX, Bootstrap and jQuery",
+             //Tools="Visual Studio, GIT, Crystal Report, Postman(for API),Anydesk(for remote server) SQL Server Management Studio and IIS Web Service"
+         },
 
          new Projects { Name = "Anderson Group BPO Inc.", Desciption="BPO services I.T Solution", Year="March - June 2018",
-             Position="Web Developer(Intern)", ProjectName="Inventory System(Internal System(Web App))", ProjectNameDescription="Using ASP.NET MVC and C# | Angular JS",
-             Tools="Visual Studio, SQL Server Management Studio and IIS Web Service"},
-        new Projects { Name = "N/A", Desciption=" ", Year=" ",
-            Position=" ", ProjectName="Wedding Invitation System(RSVP) ", ProjectNameDescription="Using Blazor and C# | Bootstrap | Azure",
-            Tools="Visual Studio, SQL Server Management Studio and Azure"},
-        new Projects { Name = "N/A", Desciption=" ", Year=" ",
-            Position=" ", ProjectName="Hotel Management and Recruitement System", ProjectNameDescription="Using Blazor and C# | Bootstrap And MudBlazor",
-            Tools="Visual Studio And SQL Server Management Studio"}
-
+             Position="Web Developer(Intern)", roleDescriptionid = 3
+             //ProjectName="Inventory System(Internal System(Web App))", ProjectNameDescription="Using ASP.NET MVC and C# | Angular JS",
+             //Tools="Visual Studio, SQL Server Management Studio and IIS Web Service"
+         },
+        //new Projects { Name = "N/A", Desciption=" ", Year=" ",
+        //    Position=" ", ProjectName="Wedding Invitation System(RSVP) ", ProjectNameDescription="Using Blazor and C# | Bootstrap | Azure",
+        //    Tools="Visual Studio, SQL Server Management Studio and Azure"},
+        //new Projects { Name = "N/A", Desciption=" ", Year=" ",
+        //    Position=" ", ProjectName="Hotel Management and Recruitement System", ProjectNameDescription="Using Blazor and C# | Bootstrap And MudBlazor",
+        //    Tools="Visual Studio And SQL Server Management Studio"}
     };
+
+    List<RoleDescription> roles = new List<RoleDescription>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1);
+
+        roles.Add(new RoleDescription() { roleDescriptionid = 1, Notes = "Providing and developing some solution to the financial institution concerns to fit into the existing system."});
+        roles.Add(new RoleDescription() { roleDescriptionid = 1, Notes = "Developing and maintaining the transaction reports."});
+        roles.Add(new RoleDescription() { roleDescriptionid = 1, Notes = "Keep and make sure the data is correct and balanced whenever send to another system or always sync it successfully."});
+        roles.Add(new RoleDescription() { roleDescriptionid = 2, Notes = "Managed a web app and web API at the same time" });
+        roles.Add(new RoleDescription() { roleDescriptionid = 2, Notes = "Responsible for planned, designed and developed the concern of the client."});
+        roles.Add(new RoleDescription() { roleDescriptionid = 2, Notes = "Worked as a one man team for the property management system and successfully delivered to the client."});
+        roles.Add(new RoleDescription() { roleDescriptionid = 3, Notes = "Worked for modifying and updating a page report for their internal inventory system." });
+    }
 
 }

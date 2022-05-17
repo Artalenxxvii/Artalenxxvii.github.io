@@ -35,7 +35,7 @@
                                 </span>
                             </li>
 
-                            <li class="list-group-item ">
+                            <li class="list-group-item d-inline-block ">
                                 <span class="text-secondary">
                                     <img src="/Images/gmail.png" alt="Admin" class="rounded-circle" width="30">
                                     <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=arthallengonzales@gmail.com" target="_blank">
@@ -47,18 +47,18 @@
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body w-100">
                     <h6> <b> PERSONAL DATA </b></h6>
                     <hr />
                     @foreach (var p in personal)
                     {
                         <div class="row d-flex justify-content-between flex-wrap">
-                            <div class="col-sm-5 mb-n3 mt-1">
-                                <p>
+                            <div class="col-sm-6 mb-n3 mt-1">
+                                <p class="d-inline-block">
                                     @p.label
                                 </p>
                             </div>
-                            <div class="col-sm-7 mt-1">
+                            <div class="col-sm-6 mt-1">
                                 <span class="text-secondary"> @p.Item </span>
                             </div>
                         </div>
@@ -93,7 +93,6 @@
     List<Personal> personal = new List<Personal>
 {
           new Personal { label = "BIRTHDATE", Item="Sept. 27, 1996" },
-          new Personal { label = "AGE", Item="25" },
           new Personal { label = "GENDER", Item="MALE" },
           new Personal { label = "NATIONALITY", Item="FILIPINO" },
           new Personal { label = "CIVIL STATUS", Item="SINGLE" },
