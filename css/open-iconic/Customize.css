@@ -4,13 +4,22 @@ body {
 }
 
 @media print {
-    body * {
+    body{
         visibility: hidden;
     }
 
     .PrintPreview, .PrintPreview * {
-        display:block;
+        display: block;
     }
 
+    .container {
+        visibility: visible !important;
+        margin-left:-15% !important;
+    }
+
+
+    .container, colgroup {
+        inline-size: max-content !important;
+    }
 
 }
