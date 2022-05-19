@@ -35,17 +35,16 @@
                 </div>
 
                 <div class="row card-body">
-                    <div class="col">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 pb-2 mx-auto">
                         <img src="/Images/1/@string.Format($"{row.projectid}.jpg") " class="img-fluid" style="cursor:pointer" alt="@row.Name" @onclick="() => modal.Open(row.projectid.ToString(), row.Name)">
-
-
+                        
                         <ImageModal @ref="modal">
                             <Body>
                                 <div class="text-center imagecontain"><img src="/Images/1/@modal.ImageName" class="embed-responsive modelimage" alt="@row.Name"></div>
                             </Body>
                         </ImageModal>
                     </div>
-                    <div class="col card">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mx-auto card pb-2 align-middle">
                         <div class="card-text">
                             <p>@row.Description</p>
                         </div>
