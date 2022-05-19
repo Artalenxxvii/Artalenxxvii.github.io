@@ -1,0 +1,163 @@
+﻿@page "/MyProjects"
+
+@inject NavigationManager Navigation
+
+<style>
+    
+    body{
+        font-family:Calibri !important;
+    }
+
+    img{
+         display: inline-block;
+    }
+
+    imagecontain {
+        max-width: 90%;
+    }
+
+    .modelimage {
+        height: 75vh !important;
+        object-fit: contain;
+    }
+</style>
+<div class="card">
+
+    <div class="card-header text-center">
+        <h3> <b>My Projects</b></h3>
+    </div>
+    <div class="container">
+        @foreach (var row in project)
+        {
+            <div class="card m-3">
+                <div class="card-header">
+                    <h5 class="mb-n1"> <b>@row.Name</b></h5>
+                </div>
+
+                <div class="row card-body">
+                    <div class="col">
+                        <img src="/Images/1/@string.Format($"{row.projectid}.jpg") " class="img-fluid" style="cursor:pointer" alt="@row.Name" @onclick="() => modal.Open(row.projectid.ToString(), row.Name)">
+
+
+                        <ImageModal @ref="modal">
+                            <Body>
+                                <div class="text-center imagecontain"><img src="/Images/1/@modal.ImageName" class="embed-responsive modelimage" alt="@row.Name"></div>
+                            </Body>
+                        </ImageModal>
+                    </div>
+                    <div class="col card">
+                        <div class="card-text">
+                            <p>@row.Description</p>
+                        </div>
+
+                        <div>
+                            <div class="row align-content-center">
+                                @foreach (var lang in langauge.Where(x => x.projectid == row.projectid))
+                                {
+                                    <p class="ml-2 mr-2 mt-1 mb-1 btn btn-secondary" style="font-size:small">@lang.name</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private ImageModal modal { get; set; }
+
+    private class projects
+    {
+        public int projectid { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public virtual ICollection<languages> langauge { get; set; }
+    }
+
+    private class languages
+    {
+        public int projectid { get; set; }
+        public string name { get; set; }
+    }
+
+    List<projects> project = new List<projects>
+    {
+       new projects { projectid = 1, Name = "Online RSVP (Wedding Invitation Web App)",
+       Description = "It's a web app doesn't have a sign up feature for the anonymous user, the account or the unique code will be generated for the attendee or anonymous user once the client adds guest on their list, then to know how many will attend or not on their invited guest for the wedding day."},
+       new projects { projectid = 2, Name = "Hotel Staff Management and Recruitment System",
+       Description = "Upgrade and developed features of this system, work on employee, hotel owner and candidate modules and also generate some summary recruiting reports."},
+       new projects { projectid = 3, Name = "Core Banking System",
+       Description = "Developed feature for integrating the system to another and manage some transaction module."},
+       new projects { projectid = 4, Name = "Enterprise Management",
+       Description = "Set up a bridge or portal to gather all data from another system and distribute to other application to generate a summary of reports."},
+       new projects { projectid = 5, Name = "PMS (Property Management System)",
+       Description = "Continuing the 60% of the project and finished the other features needed and also made an API to create a mobile application."},
+    };
+
+    List<languages> langauge = new List<languages>
+    {
+       new languages { projectid = 1, name = "C#"},
+       new languages { projectid = 2, name = "C#"},
+       new languages { projectid = 3, name = "C#"},
+       new languages { projectid = 4, name = "C#"},
+       new languages { projectid = 5, name = "C#"},
+
+       new languages { projectid = 1, name = "HTML"},
+       new languages { projectid = 2, name = "HTML"},
+       new languages { projectid = 3, name = "HTML"},
+       new languages { projectid = 4, name = "HTML"},
+       new languages { projectid = 5, name = "HTML"},
+
+       new languages { projectid = 1, name = "CSS"},
+       new languages { projectid = 2, name = "CSS"},
+       new languages { projectid = 3, name = "CSS"},
+       new languages { projectid = 4, name = "CSS"},
+       new languages { projectid = 5, name = "CSS"},
+       
+       new languages { projectid = 2, name = "ASP.NET (Blazor Server)"},
+
+       new languages { projectid = 1, name = "Javascript"},
+       new languages { projectid = 2, name = "Javascript"},
+       new languages { projectid = 3, name = "Javascript"},
+       new languages { projectid = 4, name = "Javascript"},
+       new languages { projectid = 5, name = "Javascript"},
+
+       new languages { projectid = 2, name = "Entity Framework (Datebase First)"},
+
+       new languages { projectid = 1, name = "Bootstrap"},
+       new languages { projectid = 2, name = "Bootstrap"},
+       new languages { projectid = 3, name = "Bootstrap"},
+       new languages { projectid = 4, name = "Bootstrap"},
+       new languages { projectid = 5, name = "Bootstrap"},
+
+       new languages { projectid = 1, name = "MudBlazor"},
+       new languages { projectid = 3, name = "AJAX"},
+       new languages { projectid = 4, name = "AJAX"},
+
+       new languages { projectid = 2, name = "SQL Server"},
+       new languages { projectid = 3, name = "SQL Server"},
+       new languages { projectid = 4, name = "SQL Server"},
+       new languages { projectid = 5, name = "SQL Server"},
+
+       new languages { projectid = 1, name = "ASP.NET (Blazor Server)"},
+       new languages { projectid = 2, name = "MudBlazor"},
+       new languages { projectid = 1, name = "Entity Framework (Code First) "},
+
+       new languages { projectid = 1, name = "SQL Server"},
+
+       new languages { projectid = 1, name = "Azure (Web Hosting And SQL Server)"},
+       new languages { projectid = 3, name = "IIS Web Service"},
+       new languages { projectid = 4, name = "IIS Web Service"},
+       new languages { projectid = 5, name = "IIS Web Service"},
+
+       new languages { projectid = 3, name = "jQuery"},
+       new languages { projectid = 4, name = "jQuery"},
+       new languages { projectid = 3, name = "ASP.NET Webform"},
+       new languages { projectid = 4, name = "ASP.NET Webform"},
+       new languages { projectid = 5, name = "ASP.NET MVC"},
+       new languages { projectid = 5, name = "ASP.NET WEB API(REST)"},
+
+    };
+}
