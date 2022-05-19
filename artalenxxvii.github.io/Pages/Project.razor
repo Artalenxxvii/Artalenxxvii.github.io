@@ -123,19 +123,16 @@
         //    Tools="Visual Studio And SQL Server Management Studio"}
     };
 
-    List<RoleDescription> roles = new List<RoleDescription>();
-
-    protected override async Task OnInitializedAsync()
+    List<RoleDescription> roles = new List<RoleDescription>
     {
-        await Task.Delay(1);
+       new RoleDescription { roleDescriptionid = 1, Notes = "Developing and integrating system"},
+       new RoleDescription { roleDescriptionid = 1, Notes = "Providing and developing some solution to the financial institution concerns to fit into the existing system."},
+       new RoleDescription { roleDescriptionid = 1, Notes = "Keep and make sure the data is correct and balanced whenever send to another system or always sync it successfully."},
+       new RoleDescription { roleDescriptionid = 2, Notes = "Managed a web app and web API at the same time" },
+       new RoleDescription { roleDescriptionid = 2, Notes = "Responsible for planned, designed and developed the concern of the client."},
+       new RoleDescription { roleDescriptionid = 2, Notes = "Worked as a one man team for the property management system and successfully delivered to the client."},
+       new RoleDescription { roleDescriptionid = 3, Notes = "Worked for modifying and updating a page report for their internal inventory system." },
+    };
 
-        roles.Add(new RoleDescription() { roleDescriptionid = 1, Notes = "Providing and developing some solution to the financial institution concerns to fit into the existing system."});
-        roles.Add(new RoleDescription() { roleDescriptionid = 1, Notes = "Developing and maintaining the transaction reports."});
-        roles.Add(new RoleDescription() { roleDescriptionid = 1, Notes = "Keep and make sure the data is correct and balanced whenever send to another system or always sync it successfully."});
-        roles.Add(new RoleDescription() { roleDescriptionid = 2, Notes = "Managed a web app and web API at the same time" });
-        roles.Add(new RoleDescription() { roleDescriptionid = 2, Notes = "Responsible for planned, designed and developed the concern of the client."});
-        roles.Add(new RoleDescription() { roleDescriptionid = 2, Notes = "Worked as a one man team for the property management system and successfully delivered to the client."});
-        roles.Add(new RoleDescription() { roleDescriptionid = 3, Notes = "Worked for modifying and updating a page report for their internal inventory system." });
-    }
-
+  
 }
