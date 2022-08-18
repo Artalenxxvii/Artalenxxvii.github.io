@@ -3,13 +3,13 @@
 @inject NavigationManager Navigation
 
 <style>
-    
-    body{
+
+    body {
         /*font-family:Calibri !important;*/
     }
 
-    img{
-         display: inline-block;
+    img {
+        display: inline-block;
     }
 
     imagecontain {
@@ -38,7 +38,7 @@
                 <div class="row card-body">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 pb-2 mx-auto">
                         <img src="/Images/1/@string.Format($"{row.projectid}.jpg") " class="img-fluid" style="cursor:pointer" alt="@row.Name" @onclick="() => modal.Open(row.projectid.ToString(), row.Name)">
-                        
+
                         <ImageModal @ref="modal">
                             <Body>
                                 <div class="text-center imagecontain"><img src="/Images/1/@modal.ImageName" class="embed-responsive modelimage" alt="@row.Name"></div>
@@ -88,12 +88,15 @@
        Description = "It's a web app doesn't have a sign up feature for the anonymous user, the account or the unique code will be generated for the attendee or anonymous user once the client adds guest on their list, then to know how many will attend or not on their invited guest for the wedding day."},
        new projects { projectid = 2, Name = "Hotel Staff Management and Recruitment System",
        Description = "Upgrade and developed features of this system, work on employee, hotel owner and candidate modules and also generate some summary recruiting reports."},
-       new projects { projectid = 3, Name = "Core Banking System",
+       new projects { projectid = 3, Name = "Console Application (API Integration)",
+       Description = "Getting the data from NetSuite based on the changed information or parameter inside of another program and populate on the Samsara API with the background process so it will continually sync every day and log every transferred data."},
+       new projects { projectid = 4, Name = "Core Banking System",
        Description = "Developed feature for integrating the system to another and manage some transaction module."},
-       new projects { projectid = 4, Name = "Enterprise Management",
+       new projects { projectid = 5, Name = "Enterprise Management",
        Description = "Set up a bridge or portal to gather all data from another system and distribute to other application to generate a summary of reports."},
-       new projects { projectid = 5, Name = "PMS (Property Management System)",
+       new projects { projectid = 6, Name = "PMS (Property Management System)",
        Description = "Continuing the 60% of the project and finished the other features needed and also made an API to create a mobile application."},
+    
     };
 
     List<languages> langauge = new List<languages>
@@ -103,43 +106,44 @@
        new languages { projectid = 3, name = "C#"},
        new languages { projectid = 4, name = "C#"},
        new languages { projectid = 5, name = "C#"},
+       new languages { projectid = 6, name = "C#"},
 
        new languages { projectid = 1, name = "HTML"},
        new languages { projectid = 2, name = "HTML"},
-       new languages { projectid = 3, name = "HTML"},
        new languages { projectid = 4, name = "HTML"},
        new languages { projectid = 5, name = "HTML"},
+       new languages { projectid = 6, name = "HTML"},
 
        new languages { projectid = 1, name = "CSS"},
        new languages { projectid = 2, name = "CSS"},
-       new languages { projectid = 3, name = "CSS"},
        new languages { projectid = 4, name = "CSS"},
        new languages { projectid = 5, name = "CSS"},
-       
+       new languages { projectid = 6, name = "CSS"},
+
        new languages { projectid = 2, name = "ASP.NET (Blazor Server)"},
 
        new languages { projectid = 1, name = "Javascript"},
        new languages { projectid = 2, name = "Javascript"},
-       new languages { projectid = 3, name = "Javascript"},
        new languages { projectid = 4, name = "Javascript"},
        new languages { projectid = 5, name = "Javascript"},
+       new languages { projectid = 6, name = "Javascript"},
 
        new languages { projectid = 2, name = "Entity Framework (Datebase First)"},
 
        new languages { projectid = 1, name = "Bootstrap"},
        new languages { projectid = 2, name = "Bootstrap"},
-       new languages { projectid = 3, name = "Bootstrap"},
        new languages { projectid = 4, name = "Bootstrap"},
        new languages { projectid = 5, name = "Bootstrap"},
+       new languages { projectid = 6, name = "Bootstrap"},
 
        new languages { projectid = 1, name = "MudBlazor"},
-       new languages { projectid = 3, name = "AJAX"},
        new languages { projectid = 4, name = "AJAX"},
+       new languages { projectid = 5, name = "AJAX"},
 
        new languages { projectid = 2, name = "SQL Server"},
-       new languages { projectid = 3, name = "SQL Server"},
        new languages { projectid = 4, name = "SQL Server"},
        new languages { projectid = 5, name = "SQL Server"},
+       new languages { projectid = 6, name = "SQL Server"},
 
        new languages { projectid = 1, name = "ASP.NET (Blazor Server)"},
        new languages { projectid = 2, name = "MudBlazor"},
@@ -148,16 +152,17 @@
        new languages { projectid = 1, name = "SQL Server"},
 
        new languages { projectid = 1, name = "Azure (Web Hosting And SQL Server)"},
-       new languages { projectid = 3, name = "IIS Web Service"},
        new languages { projectid = 4, name = "IIS Web Service"},
        new languages { projectid = 5, name = "IIS Web Service"},
+       new languages { projectid = 6, name = "IIS Web Service"},
+       new languages { projectid = 3, name = "IIS Web Service"},
 
-       new languages { projectid = 3, name = "jQuery"},
        new languages { projectid = 4, name = "jQuery"},
-       new languages { projectid = 3, name = "ASP.NET Webform"},
+       new languages { projectid = 5, name = "jQuery"},
        new languages { projectid = 4, name = "ASP.NET Webform"},
-       new languages { projectid = 5, name = "ASP.NET MVC"},
-       new languages { projectid = 5, name = "ASP.NET WEB API(REST)"},
-
+       new languages { projectid = 5, name = "ASP.NET Webform"},
+       new languages { projectid = 6, name = "ASP.NET MVC"},
+       new languages { projectid = 6, name = "ASP.NET WEB API(REST)"},
+       new languages { projectid = 3, name = "ASP.NET WEB API(REST)"},
     };
 }

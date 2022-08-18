@@ -1,5 +1,7 @@
 ﻿@page "/cv"
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
+
 <div class="main-body">
     <div class="row gutters-sm">
         <div class="col-md-4 mb-3">
@@ -8,7 +10,7 @@
                     <div class="d-flex flex-column align-items-center text-center">
                         <img src="/Images/aaaa.PNG" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                            <h4>Software Developer</h4>
+                            <h4>.NET Developer</h4>
                             <p class="text-muted font-size-sm"> San Jose Del Monte City,<br /> Bulacan</p>
                         </div>
                     </div>
@@ -64,13 +66,22 @@
                         </div>
                     }
                 </div>
+
+                <div class="card-body w-100 text-center">
+                    <a href="cv" @onclick="DownloadFileFromURL">
+                           Download my Curriculum Vitae
+                    </a>
+                    <hr />
+
+                </div>
+
             </div>
         </div>
 
         <div class="col-md-8">
             <div class="card mb-2">
                 <div class="card-header mb-3 align-items-center text-center">
-                    <h3><b> ARTH ALLEN GONZALES</b></h3>
+                    <h3><b>ARTH ALLEN GONZALES</b></h3>
                 </div>
             </div>
             <Skill />
@@ -83,7 +94,10 @@
 
 
 
-@code{
+
+@code {
+    public string irl = System.IO.Directory.GetCurrentDirectory() + "Files";
+
     class Personal
     {
         public string label { get; set; }
@@ -91,11 +105,21 @@
     }
 
     List<Personal> personal = new List<Personal>
-{
+    {
           new Personal { label = "BIRTHDATE", Item="Sept. 27, 1996" },
           new Personal { label = "GENDER", Item="MALE" },
           new Personal { label = "NATIONALITY", Item="FILIPINO" },
           new Personal { label = "CIVIL STATUS", Item="SINGLE" },
           new Personal { label = "RELIGION", Item="ROMAN CATHOLIC" }
     };
+
+    private async Task DownloadFileFromURL()
+    {
+        var fileName = "Arth-Allen-Gonzales-CV.pdf";
+        var fileURL = Environment.SystemDirectory + @"\Files\" + fileName;
+
+        //await JS.InvokeVoidAsync("triggerFileDownload", fileName, fileURL);
+        await JS.InvokeVoidAsync("open", fileURL, "_blank").ConfigureAwait(false);
+    }
+
 }

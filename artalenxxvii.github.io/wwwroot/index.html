@@ -10,6 +10,13 @@
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/open-iconic/Customize.css" rel="stylesheet" />
 
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <!-- jsPDF references -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.3/dist/purify.min.js"></script>
+
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
         // Single Page Apps for GitHub Pages
@@ -39,6 +46,20 @@
                 }
             }
         }(window.location))
+    </script>
+
+    <script>
+        window.downloadFileFromStream = async (fileName, contentStreamReference) => {
+            const arrayBuffer = await contentStreamReference.arrayBuffer();
+            const blob = new Blob([arrayBuffer]);
+            const url = URL.createObjectURL(blob);
+            const anchorElement = document.createElement('a');
+            anchorElement.href = url;
+            anchorElement.download = fileName ?? '';
+            anchorElement.click();
+            anchorElement.remove();
+            URL.revokeObjectURL(url);
+        }
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
 </head>
