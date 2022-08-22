@@ -65,7 +65,14 @@
 </head>
 
 <body>
-    <app> <div style="text-align:center">Loading...</div> </app>
+    <app>
+            <div style="position:absolute; top:30vh; width:100%; text-align:center">
+                <div style="display:flex; gap:10px; justify-content:center; align-items:center">
+                    <div class="spinner-border" role="status"></div>
+                    The application is loading...
+                </div>
+            </div>
+    </app>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.w
