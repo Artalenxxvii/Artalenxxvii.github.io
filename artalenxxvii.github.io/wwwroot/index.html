@@ -48,7 +48,7 @@
         }(window.location))
     </script>
 
-    <script>
+    <!--<script>
         window.downloadFileFromStream = async (fileName, contentStreamReference) => {
             const arrayBuffer = await contentStreamReference.arrayBuffer();
             const blob = new Blob([arrayBuffer]);
@@ -60,18 +60,18 @@
             anchorElement.remove();
             URL.revokeObjectURL(url);
         }
-    </script>
+    </script>-->
     <!-- End Single Page Apps for GitHub Pages -->
 </head>
 
 <body>
     <app>
-            <div style="position:absolute; top:30vh; width:100%; text-align:center">
-                <div style="display:flex; gap:10px; justify-content:center; align-items:center">
-                    <div class="spinner-border" role="status"></div>
-                    The application is loading...
-                </div>
+        <div style="position:absolute; top:30vh; width:100%; text-align:center">
+            <div style="display:flex; gap:10px; justify-content:center; align-items:center">
+                <div class="spinner-border" role="status"></div>
+                The application is loading...
             </div>
+        </div>
     </app>
 
     <div id="blazor-error-ui">
