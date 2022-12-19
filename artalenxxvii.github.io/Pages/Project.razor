@@ -34,11 +34,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td  colspan=2>
+                                    <td colspan=2>
                                         <ul class="mt-n3">
-                                            @foreach(var row in roles.Where(x => x.roleDescriptionid == p.roleDescriptionid))
+                                            @foreach (var row in roles.Where(x => x.roleDescriptionid == p.roleDescriptionid))
                                             {
-                                             <li style="font-size:medium">@row.Notes</li>   
+                                                <li style="font-size:medium">@row.Notes</li>
                                             }
                                         </ul>
                                     </td>
@@ -76,14 +76,14 @@
 
     List<Projects> project = new List<Projects>
     {
-         new Projects { Name = "Jyosna Inc.", Desciption="Financial Technology Software Solution", Year="October 2019 - Current",
-             Position="Software Developer", roleDescriptionid = 1
+
+         new Projects { Name = "Upwork", Desciption="Freelance Platform", Year="Jan 2022 - Current",
+            Position=".NET Developer", roleDescriptionid = 2
              //ProjectName="Jyosna Enterprise Management(Web App)", ProjectNameDescription="Using ASP.NET Webform and C# | Javascript and jQuery",
              //Tools="Visual Studio, SQL Server Management Studio and IIS Web Service"
          },
-
-          new Projects { Name = "Upwork", Desciption="Freelance Platform", Year="Jan 2022 - Current",
-             Position=".NET Developer", roleDescriptionid = 2
+         new Projects { Name = "Jyosna Inc.", Desciption="Financial Technology Software Solution", Year="October 2019 - October 2022",
+             Position="Software Developer", roleDescriptionid = 1
              //ProjectName="Jyosna Enterprise Management(Web App)", ProjectNameDescription="Using ASP.NET Webform and C# | Javascript and jQuery",
              //Tools="Visual Studio, SQL Server Management Studio and IIS Web Service"
          },
@@ -120,5 +120,5 @@
        new RoleDescription { roleDescriptionid = 4, Notes = "Worked for modifying and updating a page report for their internal inventory system." },
     };
 
-  
+
 }
